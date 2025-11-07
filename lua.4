@@ -1,0 +1,50 @@
+local px, pz, py = 0, 0, 0
+local dx, dz = 1, 0
+
+local function turnLeft()
+	turtle.turnLeft()
+	if dx == 1 and dz == 0 then
+		print("Turning from +x to -z")
+		dx, dz = 0, -1
+	elseif dx == 0 and dz == -1 then
+		print("Turning from -z to +x")
+		dx, dz = -1, 0
+	end
+print("New direction: " .. dx .. ", " .. dz)
+end
+
+local function turnaround()
+	turnLeft()
+	turnLeft()
+	end
+
+function dig(x)
+    turtle.digDown()
+        turtle.down()
+         end
+function forward(x)
+    turtle.dig()
+        turtle.forward()
+        end
+    
+function backup(x)
+    turtle.up()
+    end    
+                                    
+for i=1,50 do
+dig()
+end
+
+for i=1,50 do
+forward()
+end
+
+turnaround()
+
+for i=1,50 do
+turtle.forward()
+end
+
+for i=1,50 do
+turtle.up()
+end
